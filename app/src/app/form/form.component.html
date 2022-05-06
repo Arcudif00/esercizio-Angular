@@ -1,0 +1,27 @@
+<p>form works!</p>
+<form [formGroup]="formUser">
+    <h1>REGISTRATI IN MENO DI 1 MINUTO</h1>
+    <div>
+        <label>NOME:</label>
+        <input type="text" placeholder="NOME" formControlName="nome">
+    </div>
+    <div>
+        <label>COGNOME:</label>
+        <input type="text" placeholder="COGNOME" formControlName="cognome">
+    </div>
+    <div>
+        <label>CITTA':</label>
+        <select formControlName="citta">
+            <option [value]="city.codice" *ngFor="let city of citiesList">{{city.nome}}</option>
+        </select>
+    </div>
+    <div>
+        <label>EMAIL:</label>
+        <input type="text"  placeholder="EMAIL" formControlName="email">
+    </div>
+    <button (click)="onSubmit(formUser)">REGISTRATI</button>
+</form>
+<button (click)="onClick()">Clicca qui</button>
+<div *ngIf="view == true">
+    <h4>{{message}}</h4>
+</div>
